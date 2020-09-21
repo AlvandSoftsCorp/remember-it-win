@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5057416D-D992-4D22-A3ED-4FA6506E4573}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RememberIt</RootNamespace>
+    <AssemblyName>RememberIt</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Alvas.Audio, Version=2015.0.5628.4443, Culture=neutral, PublicKeyToken=b0b8e5d43e21ecb6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\Alvas.Audio.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Classes\Audio.cs" />
+    <Compile Include="Classes\KeyValPair.cs" />
+    <Compile Include="Controls\CtrlAudioPlayer.xaml.cs">
+      <DependentUpon>CtrlAudioPlayer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CtrlRoundImage.xaml.cs">
+      <DependentUpon>CtrlRoundImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CtrlRoundLabel.xaml.cs">
+      <DependentUpon>CtrlRoundLabel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CtrlCard.xaml.cs">
+      <DependentUpon>CtrlCard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CtrlExtButton.xaml.cs">
+      <DependentUpon>CtrlExtButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CtrlSearch.xaml.cs">
+      <DependentUpon>CtrlSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CtrlImageButton.xaml.cs">
+      <DependentUpon>CtrlImageButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSelectCardGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSelectCardGroup.Designer.cs">
+      <DependentUpon>frmSelectCardGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDefectiveCards.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDefectiveCards.Designer.cs">
+      <DependentUpon>frmDefectiveCards.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmBuildHtmlDocument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmBuildHtmlDocument.Designer.cs">
+      <DependentUpon>FrmBuildHtmlDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmSendCardsToPhone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmSendCardsToPhone.Designer.cs">
+      <DependentUpon>FrmSendCardsToPhone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\RemoteTcpCom.cs" />
+    <Compile Include="Forms\FrmPcToPhone.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmPcToPhone.Designer.cs">
+      <DependentUpon>FrmPcToPhone.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmTest.Designer.cs">
+      <DependentUpon>FrmTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmChangeRoot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmChangeRoot.Designer.cs">
+      <DependentUpon>FrmChangeRoot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WndCardBrowser.xaml.cs">
+      <DependentUpon>WndCardBrowser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WndTest.xaml.cs">
+      <DependentUpon>WndTest.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\CtrlCardBrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CtrlHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CtrlContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CtrlAudioPlayer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CtrlRoundImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CtrlRoundLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CtrlCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CtrlExtButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CtrlSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\CtrlImageButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\Activity.cs" />
+    <Compile Include="Classes\Card.cs" />
+    <Compile Include="Classes\Globals.cs" />
+    <Compile Include="Classes\HtmlDocBuilder.cs" />
+    <Compile Include="Controls\CtrlCardBrowser.xaml.cs">
+      <DependentUpon>CtrlCardBrowser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CtrlHome.xaml.cs">
+      <DependentUpon>CtrlHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\IMessageFilter.cs" />
+    <Compile Include="Controls\CtrlContent.xaml.cs">
+      <DependentUpon>CtrlContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="WndCardBrowser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WndTest.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\MultiCalendar.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Forms\frmSelectCardGroup.resx">
+      <DependentUpon>frmSelectCardGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDefectiveCards.resx">
+      <DependentUpon>frmDefectiveCards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmBuildHtmlDocument.resx">
+      <DependentUpon>FrmBuildHtmlDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmSendCardsToPhone.resx">
+      <DependentUpon>FrmSendCardsToPhone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmPcToPhone.resx">
+      <DependentUpon>FrmPcToPhone.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmTest.resx">
+      <DependentUpon>FrmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmChangeRoot.resx">
+      <DependentUpon>FrmChangeRoot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Resource Include="HtmlTemplates\Answer.tmp" />
+    <Resource Include="HtmlTemplates\Audio.tmp" />
+    <None Include="HtmlTemplates\ButtonTemplate.tmp" />
+    <None Include="HtmlTemplates\GroupTemplate.tmp" />
+    <None Include="HtmlTemplates\Image.tmp" />
+    <None Include="HtmlTemplates\Label.tmp" />
+    <None Include="HtmlTemplates\Paragraph.tmp" />
+    <None Include="HtmlTemplates\RememberIt.tmp" />
+    <None Include="HtmlTemplates\Reminder.tmp" />
+    <None Include="HtmlTemplates\Video.tmp" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Settings.stg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pic\false_answer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pic\true_answer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pic\new_card_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pic\star_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pic\clock_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pic\missed_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pic\drag_image.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pic\check_128.png" />
+    <Resource Include="pic\cross_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pic\drag_mp3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pic\drag_video.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pic\pluse_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="pic\group_128.png" />
+    <None Include="Resources\arrow_right_128.png" />
+    <None Include="Resources\arrow_left_128.png" />
+    <None Include="Resources\next.png" />
+    <None Include="Resources\left-arrow.png" />
+    <None Include="pic\equa_128.png" />
+    <Resource Include="Classes\CommandProtocol.txt" />
+    <Content Include="DLL\Alvas.Audio.dll" />
+    <None Include="HtmlTemplates\History.tmp" />
+    <None Include="HtmlTemplates\Question.tmp" />
+    <Resource Include="pic\down_right_100.png" />
+    <Resource Include="pic\mic_64.png" />
+    <Resource Include="pic\alarm_64.png" />
+    <Resource Include="pic\missed_64.png" />
+    <Resource Include="pic\oops_64.png" />
+    <Resource Include="pic\group_64.png" />
+    <Resource Include="pic\search_64.png" />
+    <Resource Include="pic\plus_64.png" />
+    <Resource Include="pic\mic_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Wnd\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

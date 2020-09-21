@@ -1,0 +1,8 @@
+﻿<Window x:Class="RememberIt.WndCardBrowser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WndCardBrowser" Height="300" Width="300" xmlns:my="clr-namespace:RememberIt">
+    <Grid>
+        <my:CtrlCardBrowser HorizontalAlignment="Left" x:Name="ctrlCardBrowser" VerticalAlignment="Top" />
+    </Grid>
+</Window>

@@ -1,0 +1,63 @@
+[DllImport("user32.dll", EntryPoint = "GetKeyboardState", SetLastError = true)]
+private static extern bool NativeGetKeyboardState([Out] byte[] keyStates);
+
+private static bool GetKeyboardState(byte[] keyStates)
+{
+    if (keyStates == null)
+        throw new ArgumentNullException("keyState");
+    if (keyStates.Length != 256)
+        throw new ArgumentException("The buffer must be 256 bytes long.", "keyState");
+    return NativeGetKeyboardState(keyStates);
+}
+
+private static byte[] GetKeyboardState()
+{
+    byte[] keyStates = new byte[256];
+    if (!GetKeyboardState(keyStates))
+        throw new Win32Exception(Marshal.GetLastWin32Error());
+    return keyStates;
+}
+
+private static bool AnyKeyPressed()
+{
+    byte[] keyState = GetKeyboardState();
+    // skip the mouse buttons
+    return keyState.Skip(8).Any(state => (state & 0x80) != 0);
+}
+-------------------------------------
+    <UserControl.Resources>
+        <RoutedUICommand x:Key="CmdKeyBoard" Text="KeyCmd" />
+    </UserControl.Resources>
+
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{StaticResource CmdKeyBoard}" Executed="OnKeyboardCmd" />
+    </UserControl.CommandBindings>
+
+    <UserControl.InputBindings>
+        <KeyBinding Command="{StaticResource CmdKeyBoard}" Gesture="ALT+RIGHT" CommandParameter="NextCard"/>
+        <KeyBinding Command="{StaticResource CmdKeyBoard}" Gesture="ALT+LEFT" CommandParameter="PrevCard"/>
+        <KeyBinding Command="{StaticResource CmdKeyBoard}" Gesture="ALT+UP" CommandParameter="Up"/>
+        <KeyBinding Command="{StaticResource CmdKeyBoard}" Key="DOWN"  Modifiers="ALT" CommandParameter="Down"/>
+    </UserControl.InputBindings>
+---------------------------------------
+private void OnKeyboardCmd(object sender, ExecutedRoutedEventArgs e)
+{
+	string str = e.Parameter as string;
+	switch (str)
+	{
+		case "NextCard":
+			NextCard();
+			break;
+		case "PrevCard":
+			PrevCard();
+			break;
+		case "Up":
+			MessageBox.Show("Up");
+			break;
+		case "Down":
+			MessageBox.Show("Down");
+			break;
+	}
+	e.Handled = true;
+
+}

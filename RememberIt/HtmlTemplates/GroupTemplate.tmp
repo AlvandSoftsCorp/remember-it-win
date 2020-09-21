@@ -1,0 +1,50 @@
+﻿<html>
+    <head>
+    
+    </head>
+    <body>
+        <div align="left">
+			
+			<p>
+			$home
+			</p>
+
+			<p>Group Name:</p>
+			$group_name
+			<br />
+			
+			<p>Missed Cards: </p>
+			$missed_cards
+			<br />
+			
+			<p>Pending Cards: </p>
+			$pending_cards
+			<br />
+			
+			<p>Stage 0: </p>
+			$stage_0
+			<br />
+			
+			<p>Stage 1: </p>
+			$stage_1
+			<br />
+			
+			<p>Stage 2: </p>
+			$stage_2
+			<br />
+			
+			<p>Stage 3: </p>
+			$stage_3
+			<br />
+			
+			<p>Stage 4: </p>
+			$stage_4
+			<br />
+			
+			<p>Stage 5: </p>
+			$stage_5
+			<br />
+			
+        </div>
+    </body>
+</html>

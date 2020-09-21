@@ -1,0 +1,126 @@
+﻿<UserControl x:Class="RememberIt.CtrlCardBrowser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             xmlns:my="clr-namespace:RememberIt">
+
+    <UserControl.Resources>
+        <RoutedUICommand x:Key="CmdKeyBoard" Text="KeyCmd" />
+    </UserControl.Resources>
+
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{StaticResource CmdKeyBoard}" Executed="OnKeyboardCmd" />
+    </UserControl.CommandBindings>
+
+    <UserControl.InputBindings>
+        <KeyBinding Command="{StaticResource CmdKeyBoard}" Gesture="ALT+RIGHT" CommandParameter="NextCard"/>
+        <KeyBinding Command="{StaticResource CmdKeyBoard}" Gesture="ALT+LEFT" CommandParameter="PrevCard"/>
+        <KeyBinding Command="{StaticResource CmdKeyBoard}" Gesture="ALT+UP" CommandParameter="Up"/>
+        <KeyBinding Command="{StaticResource CmdKeyBoard}" Key="DOWN"  Modifiers="ALT" CommandParameter="Down"/>
+    </UserControl.InputBindings>
+    
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label 
+            x:Name="lblCardNumber" 
+            Grid.Row="0"
+            Grid.Column="1"
+            Content="Title" 
+            Background="#FF77934B"
+            Margin="0,0" 
+            Foreground="Maroon"
+            FontWeight="Bold"
+            HorizontalContentAlignment="Right"
+            VerticalContentAlignment="Center"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            />
+
+            <Label 
+            x:Name="lblTitle" 
+            Grid.Row="0"
+            Grid.Column="0"
+            Content="Title" 
+            Background="#FF77934B"
+            Margin="0,0" 
+            Foreground="Maroon"
+            FontWeight="Bold"
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Center"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            />
+        </Grid>
+
+        <my:CtrlContent 
+            Grid.Row="1" 
+            x:Name="ctrlContent" 
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch" 
+            Margin="0,0"
+            Visibility="Visible"
+            />
+
+        <Label 
+            x:Name="lblInfo" 
+            Grid.Row="3"
+            Grid.Column="0"
+            Content="By: Parszadeh.Ahmad@gmail.com" 
+            Background="#FF77934B"
+            Margin="0,0" 
+            Foreground="Navy"
+            FontWeight="Bold"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            />
+
+        <Grid
+            Grid.Row="2"
+            Grid.Column="0"
+            x:Name="grdButtons"
+            Visibility="Hidden"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnCorrectAnswer" Grid.Row="2" Grid.Column="0" Click="btnCorrectAnswer_Click">
+                <StackPanel x:Name="pnl1" Orientation="Horizontal">
+                    <Image Source="/pic/true_answer.png" Width="40" Height="40" HorizontalAlignment="Left" />
+                    <TextBlock Text="" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button x:Name="btnWrongAnswer" Grid.Row="2" Grid.Column="1" Click="btnWrongAnswer_Click">
+                <StackPanel x:Name="pnl2" Orientation="Horizontal">
+                    <Image Source="/pic/false_answer.png" Width="40" Height="40" HorizontalAlignment="Left" />
+                    <TextBlock Text="" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+        </Grid>
+        
+    </Grid>
+</UserControl>

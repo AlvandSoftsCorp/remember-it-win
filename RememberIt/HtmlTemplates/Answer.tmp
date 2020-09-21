@@ -1,0 +1,19 @@
+﻿<html>
+    <head>
+    
+    </head>
+    <body>
+		<div align="left">
+			<p>
+			$home $group
+			</p>
+		</div>
+        <div align="center">
+			<button type="button" style="width:50px; height:30px" onclick="window.location.href='Q.html'">Q</button>            
+			<button type="button" style="width:50px; height:30px" disabled="disabled">A</button>            
+			<button type="button" style="width:50px; height:30px" onclick="window.location.href='R.html'">R</button>            
+			<button type="button" style="width:50px; height:30px" onclick="window.location.href='H.html'">H</button>            
+        </div>
+        $card_content
+    </body>
+</html>

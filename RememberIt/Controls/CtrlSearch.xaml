@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="RememberIt.CtrlSearch"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="300" xmlns:my="clr-namespace:RememberIt">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="70"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Name="txtSearch" Grid.Column="0" KeyDown="txtSearch_KeyDown" VerticalContentAlignment="Center" FontSize="28" Foreground="DarkGreen"/>
+            <my:CtrlImageButton 
+                    x:Name="btnSearch" 
+                    Grid.Column="1" 
+                    OnImageButtonClicked="btn_Click" 
+                    SourceOfImage="/pic/search_64.png" />
+        </Grid>
+        <ComboBox Name="cmbCardGroups" Grid.Row="1"/>
+        <my:CtrlCardBrowser Grid.Row="2" HorizontalAlignment="Left" x:Name="ctrlCardBrowser" VerticalAlignment="Top" />
+    </Grid>
+</UserControl>

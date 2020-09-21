@@ -1,0 +1,1 @@
+﻿<button type="button" style="width:$widthpx; height:$heightpx" onclick="window.location.href='$href'">$button_text</button>

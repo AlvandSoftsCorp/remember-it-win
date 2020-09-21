@@ -1,0 +1,22 @@
+﻿// Command Examples:
+
+req:dir_exists; path:/cards/;
+resp:0;
+
+req:dir_create; path:/cards/;
+resp:1;
+
+req:file_create_open; file_name:/cards/001.txt;
+resp:1;
+
+req:declear; file_length:2048;
+resp:1;
+
+req:get_total_bytes_received;
+resp:2048;
+
+req:get_checksum;
+resp:45122154;		// 4 byte unsigned int
+
+req:file_close; file_name:/cards/001.txt;
+resp:1;
